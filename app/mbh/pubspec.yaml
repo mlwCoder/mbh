@@ -1,0 +1,61 @@
+name: mbh
+description: "Enterprise-grade Flutter scaffold."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # state / route / di
+  get: ^4.6.6
+
+  # ui
+  flutter_screenutil: ^5.9.3
+
+  # network
+  dio: ^5.7.0
+  connectivity_plus: ^6.1.5
+
+  # storage
+  get_storage: ^2.1.1
+  flutter_secure_storage: ^9.2.4
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  path_provider: ^2.1.5
+
+  # logging / monitoring
+  logger: ^2.6.1
+  sentry_flutter: ^9.6.0
+
+  # utils
+  intl: ^0.20.2
+  package_info_plus: ^8.3.1
+  device_info_plus: ^11.5.0
+  collection: ^1.19.1
+  json_annotation: ^4.9.0
+
+  # permissions / media
+  permission_handler: ^11.3.1
+
+  # websocket
+  web_socket_channel: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  build_runner: ^2.5.4
+  json_serializable: ^6.9.5
+
+flutter:
+  uses-material-design: true

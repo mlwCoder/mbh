@@ -1,0 +1,9 @@
+class StorageKeys {
+  const StorageKeys._();
+
+  static const String themeMode = 'theme_mode';
+  static const String locale = 'locale';
+  static const String isFirstLaunch = 'is_first_launch';
+  static const String accessToken = 'access_token';
+  static const String refreshToken = 'refresh_token';
+}
