@@ -18,7 +18,7 @@ class SplashPage extends GetView<SplashController> {
               right: 16,
               child: Obx(
                 () => TextButton(
-                  onPressed: controller.goToLogin,
+                  onPressed: controller.goToHome,
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                     backgroundColor: Colors.black.withValues(alpha: 0.45),

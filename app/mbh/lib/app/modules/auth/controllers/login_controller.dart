@@ -9,8 +9,6 @@ import 'package:mbh/app/modules/auth/models/login_response.dart';
 import 'package:mbh/app/modules/auth/repositories/auth_repository.dart';
 import 'package:mbh/app/shared/shared.dart';
 
-import '../../../core/logging/app_logger.dart';
-
 class LoginController extends BaseController {
   LoginController(this._authRepository, this._authService);
 
@@ -23,7 +21,7 @@ class LoginController extends BaseController {
   bool get canSubmit => account.value.isNotEmpty && password.value.isNotEmpty;
 
   Future<void> login() async {
-    Log.i('LoginController', '点击了按钮');
+    Log.login('点击登录按钮');
     if (!canSubmit) {
       return;
     }

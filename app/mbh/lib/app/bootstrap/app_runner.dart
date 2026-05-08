@@ -15,17 +15,19 @@ class AppRunner {
     required AppFlavor flavor,
     required Widget app,
   }) async {
-    WidgetsFlutterBinding.ensureInitialized();
-    FlavorConfig.init(flavor);
-    await AppInitializer.init();
+    await runZonedGuarded(
+      () async {
+        WidgetsFlutterBinding.ensureInitialized();
+        FlavorConfig.init(flavor);
+        await AppInitializer.init();
 
-    FlutterError.onError = (FlutterErrorDetails details) {
-      FlutterError.presentError(details);
-      _reportFlutterError(details);
-    };
+        FlutterError.onError = (FlutterErrorDetails details) {
+          FlutterError.presentError(details);
+          _reportFlutterError(details);
+        };
 
-    runZonedGuarded(
-      () => runApp(app),
+        runApp(app);
+      },
       (Object error, StackTrace stack) {
         _reportZoneError(error, stack);
       },

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:mbh/app/core/auth/auth_service.dart';
 import 'package:mbh/app/core/base/base_controller.dart';
+import 'package:mbh/app/core/logging/log.dart';
 import 'package:mbh/app/core/routing/app_navigator.dart';
 import 'package:mbh/app/core/storage/kv/app_storage.dart';
 
@@ -22,12 +23,6 @@ class SplashController extends BaseController {
     super.onReady();
     _startRouteFlow();
   }
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-
-  }
 
   @override
   void onClose() {
@@ -36,11 +31,6 @@ class SplashController extends BaseController {
   }
 
   Future<void> _startRouteFlow() async {
-    if (_authService.hasToken) {
-      await AppNavigator.toHome();
-      return;
-    }
-
     await _storage.setFirstLaunchCompleted();
     _startCountdown();
   }
@@ -52,7 +42,7 @@ class SplashController extends BaseController {
     _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       if (countdown.value <= 1) {
         timer.cancel();
-        goToLogin();
+        goToHome();
         return;
       }
 
@@ -60,13 +50,14 @@ class SplashController extends BaseController {
     });
   }
 
-  Future<void> goToLogin() async {
+  Future<void> goToHome() async {
     if (_hasNavigated) {
       return;
     }
 
     _hasNavigated = true;
     _timer?.cancel();
-    await AppNavigator.toLogin();
+    Log.i('SPLASH', '倒计时结束，进入首页');
+    await AppNavigator.toHome();
   }
 }

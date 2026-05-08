@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:mbh/app/core/logging/log_formatter.dart';
 import 'package:mbh/app/core/logging/log_level.dart';
 import 'package:mbh/app/core/logging/log_sink.dart';
 import 'package:path_provider/path_provider.dart';
@@ -28,7 +29,7 @@ class FileLogSink implements LogSink {
       return;
     }
 
-    final String timestamp = DateTime.now().toIso8601String();
+    final String timestamp = LogFormatter.formatTimestamp(DateTime.now());
     final StringBuffer buffer = StringBuffer()
       ..writeln('[${level.label}] [$tag] $timestamp $message');
 

@@ -6,6 +6,7 @@ import 'package:mbh/app/modules/auth/bindings/auth_binding.dart';
 import 'package:mbh/app/modules/auth/views/login_page.dart';
 import 'package:mbh/app/modules/home/bindings/home_binding.dart';
 import 'package:mbh/app/modules/home/views/home_page.dart';
+import 'package:mbh/app/modules/home/views/me_feature_pages.dart';
 import 'package:mbh/app/modules/onboarding/bindings/onboarding_binding.dart';
 import 'package:mbh/app/modules/onboarding/views/onboarding_page.dart';
 import 'package:mbh/app/modules/profile/bindings/profile_binding.dart';
@@ -39,7 +40,6 @@ class AppPages {
       name: AppRoutes.home,
       page: HomePage.new,
       binding: HomeBinding(),
-      middlewares: <GetMiddleware>[AuthMiddleware()],
     ),
     GetPage<dynamic>(
       name: AppRoutes.settings,
@@ -52,6 +52,30 @@ class AppPages {
       page: ProfilePage.new,
       binding: ProfileBinding(),
       middlewares: <GetMiddleware>[AuthMiddleware()],
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.coupon,
+      page: CouponPage.new,
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.wallet,
+      page: WalletPage.new,
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.favoriteList,
+      page: FavoriteListPage.new,
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.customerService,
+      page: CustomerServicePage.new,
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.address,
+      page: AddressPage.new,
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.merchantApply,
+      page: MerchantApplyPage.new,
     ),
   ];
 }

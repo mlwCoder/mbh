@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mbh/app/core/logging/log.dart';
+import 'package:mbh/app/core/routing/app_navigator.dart';
 import 'package:mbh/app/modules/auth/controllers/login_controller.dart';
 import 'package:mbh/app/shared/shared.dart';
 
@@ -79,10 +79,7 @@ class LoginPage extends GetView<LoginController> {
                       height: 52,
                       child: ElevatedButton(
                         onPressed: controller.canSubmit
-                            ? () {
-                                Log.i('login', '点击登录按钮');
-                                controller.login();
-                              }
+                            ? controller.login
                             : null,
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
@@ -154,7 +151,7 @@ class _LoginTopBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          onPressed: Get.back,
+          onPressed: () => Get.back(),
           icon: Icon(Icons.arrow_back_ios_new_rounded, color: iconColor, size: 20),
           splashRadius: 20,
         ),
@@ -170,7 +167,7 @@ class _LoginTopBar extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () => Get.back(),
           icon: Icon(Icons.home_outlined, color: iconColor, size: 22),
           splashRadius: 20,
         ),
